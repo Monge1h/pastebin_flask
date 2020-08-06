@@ -4,7 +4,6 @@ from flask_bootstrap import Bootstrap
 
 def create_app():
     app = Flask(__name__)
-    bootstrap = Bootstrap(app)
+    Bootstrap(app)
 
     return app
-
