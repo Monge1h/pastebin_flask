@@ -1,7 +1,15 @@
 from app import create_app
 from flask import render_template
+import unittest
 
 app = create_app()
+
+
+@app.cli.command()
+def test():
+    tests = unittest.TestLoader().discover('tests')
+
+    unittest.TextTestRunner().run(tests)
 
 
 @app.route('/')
