@@ -17,3 +17,8 @@ class MainTest(TestCase):
         self.client.get(url_for('index'))
 
         self.assertTemplateUsed('home.html')
+
+    def test_about_get(self):
+        self.client.get(url_for('about'))
+
+        self.assertTemplateUsed('about.html')
