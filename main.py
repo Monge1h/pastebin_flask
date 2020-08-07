@@ -24,4 +24,8 @@ def about():
 
 @app.route('/<paste_id>')
 def paste_bin(paste_id):
-    return paste_id
+    context = {
+        'paste_id': paste_id
+    }
+
+    return render_template('paste_bin.html', **context)
