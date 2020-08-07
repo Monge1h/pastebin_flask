@@ -22,3 +22,8 @@ class MainTest(TestCase):
         self.client.get(url_for('about'))
 
         self.assertTemplateUsed('about.html')
+
+    def test_paste_id_get(self):
+        self.client.get('/123xdxd')
+
+        self.assertTemplateUsed('paste_bin.html')
