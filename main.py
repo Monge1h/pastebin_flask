@@ -1,5 +1,6 @@
 from app import create_app
 from flask import render_template
+from app.forms import PasteBinForm
 import unittest
 
 app = create_app()
@@ -14,7 +15,12 @@ def test():
 
 @app.route('/')
 def index():
-    return render_template('home.html')
+    paste_bin_form = PasteBinForm()
+
+    context = {
+        'paste_bin_form': paste_bin_form
+    }
+    return render_template('home.html', **context)
 
 
 @app.route('/about')
