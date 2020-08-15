@@ -6,8 +6,8 @@
 {% block content %}
     <div class="container border">
         <h3>New Paste</h3>
-        <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
         <form action="{{ url_for('index') }}" method="POST">
+            {{ paste_bin_form.hidden_tag() }}
             {{ paste_bin_form.paste }}
             {{ paste_bin_form.submit }}
         </form>
