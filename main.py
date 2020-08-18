@@ -13,6 +13,16 @@ def test():
     unittest.TextTestRunner().run(tests)
 
 
+@app.errorhandler(404)
+def not_found(error):
+    context = {
+        'error': error,
+        'text': 'Sorry that page doesn\'t exist',
+        'status': 404
+    }
+    return render_template('error.html', **context)
+
+
 @app.route('/', methods=['GET', 'POST'])
 def index():
     paste_bin_form = PasteBinForm()
